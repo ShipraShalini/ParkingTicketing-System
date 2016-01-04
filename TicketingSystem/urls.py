@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from src.search.view.parkingview import ParkingView
+from src.search.view.searchview import SearchView
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^park/', ParkingView.as_view()),
+    url(r'^search/', SearchView.as_view()),
+
 ]
