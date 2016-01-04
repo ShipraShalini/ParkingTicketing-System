@@ -18,11 +18,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from src.search.view.parkingview import ParkingView
 from src.search.view.searchview import SearchView
+from src.search.view.availibilityview import AvailibilityView
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^park/', ParkingView.as_view()),
     url(r'^search/', SearchView.as_view()),
+    url(r'^available/', AvailibilityView.as_view()),
 
 ]

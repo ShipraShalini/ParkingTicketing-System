@@ -11,6 +11,15 @@ def is_duplicate(reg_no):
         return False
 
 
+def max_slot_no_in_DB():
+    s = Slot.search().sort(SLOT_NO_DESC)
+    res = s.query("match_all").execute()[:1]
+    if res:
+            return res[0].slot_no
+    else:
+            return 0
+
+
 def assign_slot():
     s = Slot.search().sort(SLOT_NO)
     res = s.filter("term", status=STATUS_FREE).execute()[:1]
