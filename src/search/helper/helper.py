@@ -1,16 +1,14 @@
 from src.models.model import Slot
 from common.constants import *
 
-ITEM_INDEX='parking'
 
-def create_query():
-    d = {
-        "aggs" : {
-            "min_slot": {
-                "min" : { "field" : SLOT_NO}
-            }
-        }
-}
+def is_duplicate(reg_no):
+    s = Slot.search()
+
+    if s.filter("term", registration_no=reg_no).execute():
+        return True
+    else:
+        return False
 
 
 def assign_slot():
