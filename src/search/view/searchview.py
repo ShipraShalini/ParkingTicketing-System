@@ -1,6 +1,6 @@
 from django.views.generic.base import TemplateView
 from src.search.helper.read_request import read_request
-from src.search.lib.searchclass import searchclass
+from src.search.lib.searchlib import searchclass
 from common.constants import *
 from django.views.generic import View
 from rest_framework import permissions
@@ -15,25 +15,5 @@ class SearchView(View):
         if self.request.method == 'GET':
             reg_no, colour = read_request(self.request)
             slots = searchclass.find(reg_no=reg_no, colour=colour)
+            slots = json.dumps(slots)
             return HttpResponse(slots)
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def get_context_data(self, **kwargs):
-#     if self.request.method == 'GET':
-#         reg_no, colour = read_request(self.request)
-#         slot = searchclass.find(reg_no=reg_no, colour=colour)
-#         context = super(SearchView, self).get_context_data(**kwargs)
-#         context[SLOT_INFO] = slot.__dict__
-#         return context
-

@@ -1,7 +1,7 @@
 from django.views.generic import View
 from rest_framework import permissions
 from src.search.helper.read_request import read_request
-from src.search.lib.actionclass import actionclass
+from src.search.lib.actionlib import actionclass
 from django.http import HttpResponse
 import json
 from src.search.helper.helper import is_duplicate

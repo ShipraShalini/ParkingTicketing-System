@@ -1,8 +1,8 @@
 from django.views.generic.base import TemplateView
 from django.http import HttpResponse
 from django.views.generic import View
+from src.search.lib.availibilitylib import availabilityclass
 
-from src.search.lib.searchclass import availabilityclass
 
 # class SearchView(View):
 #     def get(self, request):

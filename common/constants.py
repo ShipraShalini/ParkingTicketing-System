@@ -9,3 +9,7 @@ SLOT_INFO = 'slot_info'
 BLANK = None
 MAX_NO_OF_SLOTS = 10
 
+LABEL_FREE = 'Free'
+LABEL_OCCUPIED = "Occupied"
+LABEL_STATUS_TITLE = 'Status of Parking area'
+
