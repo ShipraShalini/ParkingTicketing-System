@@ -5,7 +5,7 @@ def read_request(request):
         data = json.loads(request.body)
         reg_no = data['reg_no']
         try:
-            colour = data['colour']
+            colour = data['colour'].title()
         except KeyError:
             return reg_no
         else:
@@ -14,7 +14,7 @@ def read_request(request):
     elif request.method == "GET":
         reg_no = request.GET.get('reg_no', None)
         colour = request.GET.get('colour', None)
-        return reg_no, colour
+        return reg_no, colour.title()
 
     elif request.method == "DELETE":
         data = json.loads(request.body)

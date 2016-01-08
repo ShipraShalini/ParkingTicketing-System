@@ -7,7 +7,6 @@ from rest_framework import permissions
 from src.search.helper.read_request import read_request
 from django.http import HttpResponse
 import json
-from src.search.helper.helper import is_duplicate
 
 
 class SearchView(View):

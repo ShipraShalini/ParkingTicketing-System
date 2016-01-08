@@ -4,3 +4,8 @@ from elasticsearch_dsl.connections import connections
 # initializing
 connections.create_connection(hosts=['localhost'])
 Slot.init()
+
+# from elasticsearch import Elasticsearch
+# from elasticsearch_dsl import Search
+# es = Elasticsearch('parking')
+# s = Search(es

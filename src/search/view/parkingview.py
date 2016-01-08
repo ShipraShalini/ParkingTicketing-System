@@ -4,20 +4,23 @@ from src.search.helper.read_request import read_request
 from src.search.lib.actionlib import actionclass
 from django.http import HttpResponse
 import json
-from src.search.helper.helper import is_duplicate
-
+from src.search.helper.helper import assignmentclass
+from common.constants import *
 
 class ParkingView(View):
     permission_classes = (permissions.AllowAny, )
     def post(self, request):
         if request.method == 'POST':
             reg_no, colour = read_request(request)
-            is_parked =is_duplicate(reg_no)
+            is_parked = assignmentclass.is_duplicate(reg_no)
             if is_parked:
                 return HttpResponse("This car is already parked")
             slot = actionclass.park(reg_no=reg_no, colour=colour)
-            context = json.dumps(slot._d_)
-            return HttpResponse(context)
+            if slot:
+                context = json.dumps(slot._d_)
+                return HttpResponse(context)
+            else:
+                return HttpResponse(OCCUPIED_MESSAGE)
             # return render(request, 'polls/index.html', context)
 
 

@@ -1,11 +1,13 @@
 from src.models.model import Slot
 from common.constants import *
-from src.search.helper.helper import assign_slot
+from src.search.helper.helper import assignmentclass
 
 class ActionClass(object):
 
     def park(self, reg_no, colour ):
-        id = assign_slot()
+        id = assignmentclass.assign_slot()
+        if not id:
+            return False
         slot = Slot.get(id =id, ignore=404)
         if not slot:
             slot = Slot(meta={'id': id})
