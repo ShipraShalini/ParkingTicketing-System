@@ -1,6 +1,6 @@
 from common.constants import SLOT_NO, STATUS_FREE, MAX_NO_OF_SLOTS
 from src.models.model import Slot
-from src.search.helper.helper import assignmentclass
+from src.search.lib.assignmentlib import assignmentclass
 
 
 class AvailabilityClass(object):

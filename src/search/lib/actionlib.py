@@ -1,6 +1,7 @@
-from src.models.model import Slot
 from common.constants import *
-from src.search.helper.helper import assignmentclass
+from src.models.model import Slot
+from src.search.lib.assignmentlib import assignmentclass
+
 
 class ActionClass(object):
 

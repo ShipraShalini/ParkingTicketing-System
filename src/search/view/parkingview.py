@@ -1,18 +1,21 @@
+import json
+
+from django.http import HttpResponse
 from django.views.generic import View
 from rest_framework import permissions
+
+from common.constants import *
 from src.search.helper.read_request import read_request
 from src.search.lib.actionlib import actionclass
-from django.http import HttpResponse
-import json
-from src.search.helper.helper import assignmentclass
-from common.constants import *
+from src.search.helper.isduplicate import is_duplicate
+
 
 class ParkingView(View):
     permission_classes = (permissions.AllowAny, )
     def post(self, request):
         if request.method == 'POST':
             reg_no, colour = read_request(request)
-            is_parked = assignmentclass.is_duplicate(reg_no)
+            is_parked = is_duplicate(reg_no)
             if is_parked:
                 return HttpResponse("This car is already parked")
             slot = actionclass.park(reg_no=reg_no, colour=colour)
