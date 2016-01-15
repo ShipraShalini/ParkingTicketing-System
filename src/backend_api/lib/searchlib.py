@@ -13,7 +13,7 @@ class SearchClass(object):
         except NotFoundError:
             return False
         else:
-            return dict(registration_no=slot.registration_no, slot_no=slot.slot_no)
+            return dict(registration_no=slot.registration_no, slot_no=slot.slot_no, colour= slot.colour)
 
     def coloursearch(self, colour):
         try:

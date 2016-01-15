@@ -1,6 +1,6 @@
-from common.constants import *
+from src.backend_api.lib.assignmentlib import assignmentclass
 from src.models.model import Slot
-from src.search.lib.assignmentlib import assignmentclass
+from src.common.constants import *
 
 
 class ActionClass(object):

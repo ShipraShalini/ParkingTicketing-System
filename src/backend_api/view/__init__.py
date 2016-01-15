@@ -7,5 +7,5 @@ Slot.init()
 
 # from elasticsearch import Elasticsearch
 # from elasticsearch_dsl import Search
-# es = Elasticsearch('parking')
+# es = Elasticsearch(index='parking')
 # s = Search(es

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+
+<h2>CAR PARKED</h2>
+
+     <ul>
+     {% for key, value in data.items %}
+     <li> {{ key }}: {{ value }}</li>
+    {% endfor %}
+    </ul>
+
+
+    <ol type="1">
+        {% for car in data %}
+        <li>
+            <ul>
+                {% for key, value in car.items %}
+                    <li> {{ key }}: {{ value }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+
+    </ol>
+
+{% endblock %}

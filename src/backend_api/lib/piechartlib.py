@@ -1,7 +1,10 @@
+import cStringIO
+from src.common.constants import *
 from pylab import *
-from common.constants import *
 
-class piechart():
+
+class PieChartClass():
+    pieio = cStringIO.StringIO()
     def fraction(self,part):
         occupied = 100 * float(part)/float(MAX_NO_OF_SLOTS)
         free = 100 - occupied
@@ -16,3 +19,7 @@ class piechart():
 
         title(LABEL_STATUS_TITLE, bbox={'facecolor':'0.8', 'pad':5})
         show()
+        savefig(self.pieio, format=FORMAT)
+        return self.pieio.getvalue().encode("base64").strip()
+
+piechart = PieChartClass()

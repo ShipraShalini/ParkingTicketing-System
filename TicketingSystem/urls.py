@@ -16,15 +16,24 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from src.search.view.parkingview import ParkingView
-from src.search.view.searchview import SearchView
-from src.search.view.availibilityview import AvailibilityView
 
+from src.Display.Views.parkformview import park
+from src.Display.Views.searchformview import search
+from src.Display.Views.unparkformview import unpark
+from src.backend_api.view.availibilityview import AvailibilityView
+from src.backend_api.view.chartview import ChartView
+from src.backend_api.view.parkingview import ParkingView
+from src.backend_api.view.searchview import SearchView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^park/', ParkingView.as_view()),
     url(r'^search/', SearchView.as_view()),
     url(r'^available/', AvailibilityView.as_view()),
+    url(r'^chart/', ChartView.as_view()),
+    url(r'^search-form/', search),
+    # url(r'^park-form/', ParkDisplayView.as_view()),
+    url(r'^park-form/', park),
+    url(r'^unpark-form/', unpark),
 
 ]

@@ -1,7 +1,6 @@
-from common.constants import SLOT_NO, STATUS_FREE, MAX_NO_OF_SLOTS
+from src.backend_api.lib.assignmentlib import assignmentclass
 from src.models.model import Slot
-from src.search.lib.assignmentlib import assignmentclass
-
+from src.common.constants import *
 
 class AvailabilityClass(object):
     s= Slot.search().sort(SLOT_NO)
@@ -10,15 +9,22 @@ class AvailabilityClass(object):
         slots = self.s.filter("term", status = STATUS_FREE).execute()
         return slots
 
+    def search_occupied(self):
+        slots = self.s.filter("term", status = STATUS_OCCUPIED).execute()
+        return slots
+
     def is_max_slot_no_reached(self):
-        max_slot_no = assignmentclass.max_occupied_slot_plus_one(self.s)
-        print "D", max_slot_no
+        max_slot_no = assignmentclass.max_occupied_slot_plus_one()
         if max_slot_no:
             return max_slot_no
         else:
             return False
 
     def is_available(self):
+        '''
+        to check if parking space is available
+        :return: bool
+        '''
         is_free = self.search_free()
         if is_free:
             return is_free
@@ -29,8 +35,11 @@ class AvailabilityClass(object):
 
 
     def allfree(self):
+        '''
+        finds all the free slots
+        :return: list
+        '''
         slots = self.search_free()
-
         available_slots = []
         for slot in slots:
             available_slots.append(dict(Slot_no = slot.slot_no))

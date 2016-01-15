@@ -1,6 +1,5 @@
 from src.models.model import Slot
-from common.constants import *
-
+from src.common.constants import *
 
 
 class AssignmentClass():
