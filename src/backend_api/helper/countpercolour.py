@@ -12,11 +12,8 @@ def count_per_colour():
 
     es = Elasticsearch(index=INDEX)
     res = es.search(index=INDEX, body=body)
-    data = dict()
 
-    for colour in res['aggregations']['count_per_colour']['buckets']:
-        data[colour['key']] = colour['doc_count']
+    return res['aggregations']['count_per_colour']['buckets']
 
-    return data
 
 

@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
+
 {% block body %}
 <form action="{{ link }}" method="post">
     {% csrf_token %}
     {{ form }}
+    <p> {{ STATIC_URL }} </p>
     <input type="submit" value="Submit" />
 </form>
 {% endblock %}

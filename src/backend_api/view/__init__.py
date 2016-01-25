@@ -3,7 +3,7 @@ from elasticsearch_dsl.connections import connections
 
 # initializing
 connections.create_connection(hosts=['localhost'])
-Slot.init()
+# Slot.init()
 
 # from elasticsearch import Elasticsearch
 # from elasticsearch_dsl import Search

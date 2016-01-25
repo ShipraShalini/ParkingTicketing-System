@@ -11,7 +11,7 @@ SLOT_NO_DESC = "-slot_no"
 SLOT_INFO = "slot_info"
 
 BLANK = None
-MAX_NO_OF_SLOTS = 6
+MAX_NO_OF_SLOTS = 10
 
 LABEL_FREE = "Free"
 LABEL_OCCUPIED = "Occupied"

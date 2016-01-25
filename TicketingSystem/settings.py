@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'src.backend_api',
     'src.Display',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -50,6 +51,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'TicketingSystem.urls'
@@ -121,6 +123,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/hypatia/TicketingSystem/src/Display/templates/static'
+
+STATICFILES_DIRS =[
+    '/home/hypatia/TicketingSystem/src/Display/templates/static',
+]
 
 ES_INDEX = 'items'
 
