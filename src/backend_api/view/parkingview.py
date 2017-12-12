@@ -13,6 +13,7 @@ import json
 
 class ParkingView(View):
     permission_classes = (permissions.AllowAny, )
+
     def post(self, request):
         if request.method == 'POST':
             reg_no, colour = read_request(request)
@@ -30,12 +31,9 @@ class ParkingView(View):
                 return HttpResponse(message, content_type="application/json")
             # return render(request, 'polls/index.html', context)
 
-
     def delete(self,request):
         if request.method == 'DELETE':
             id = read_request(request)
             slot = actionclass.unpark(id =id)
             context = json.dumps(slot._d_)
             return HttpResponse(context,  content_type="application/json")
-
-            # return render(request, 'polls/index.html', context)

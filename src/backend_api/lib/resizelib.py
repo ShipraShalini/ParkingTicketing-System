@@ -1,4 +1,2 @@
-
-
-class ResizeLib():
+class ResizeLib(object):
     pass

@@ -13,5 +13,4 @@ class SearchView(View):
             reg_no, colour = read_request(self.request)
             slots = searchclass.find(reg_no=reg_no, colour=colour)
             slots = json.dumps(slots)
-            print "slots", slots
             return HttpResponse(slots, content_type="application/json")

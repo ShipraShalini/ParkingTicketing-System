@@ -139,4 +139,3 @@ ES_INDEX_SETTINGS = {
 ES_CONNECTIONS = {
     'default': {},
 }
-

@@ -11,6 +11,6 @@ PARKURL= 'park'
 SEARCHURL='search'
 
 #Chart file
-CHARTHTML = "chart.html"
-CHARTJSONPATH = "/home/hypatia/TicketingSystem/src/Display/templates"
-CHARTJSONFILE = "chart-data.json"
+CHARTHTML = 'chart.html'
+CHARTJSONPATH = '/home/hypatia/TicketingSystem/src/Display/templates'
+CHARTJSONFILE = 'chart-data.json'

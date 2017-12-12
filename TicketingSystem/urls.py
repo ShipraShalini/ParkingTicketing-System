@@ -14,7 +14,9 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+from django.conf import settings
 from django.conf.urls import url
+from django.conf.urls.static import static
 from django.contrib import admin
 
 from src.Display.Views.dashboardview import DashboardView
@@ -25,9 +27,6 @@ from src.backend_api.view.availibilityview import AvailibilityView
 from src.backend_api.view.chartview import ChartView
 from src.backend_api.view.parkingview import ParkingView
 from src.backend_api.view.searchview import SearchView
-from django.conf import settings
-from django.conf.urls.static import static
-
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -36,7 +35,6 @@ urlpatterns = [
     url(r'^available/', AvailibilityView.as_view()),
     url(r'^chart/', ChartView.as_view()),
     url(r'^search-form/', search),
-    # url(r'^park-form/', ParkDisplayView.as_view()),
     url(r'^park-form/', park),
     url(r'^unpark-form/', unpark),
     url(r'^dashboard/', DashboardView.as_view()),

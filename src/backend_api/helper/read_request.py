@@ -1,7 +1,7 @@
 import json
 
 def read_request(request):
-    if request.method == "POST"  :
+    if request.method == 'POST'  :
         data = json.loads(request.body)
         reg_no = data['reg_no']
         try:
@@ -11,16 +11,13 @@ def read_request(request):
         else:
             return  reg_no, colour
 
-    elif request.method == "GET":
-        print "Body",request.body
+    elif request.method == 'GET':
         reg_no = request.GET.get('reg_no', None)
-        print "reg", reg_no
         colour = request.GET.get('colour', None)
         if colour:
-                colour= colour.title()
+            colour = colour.title()
         return reg_no, colour
 
-    elif request.method == "DELETE":
+    elif request.method == 'DELETE':
         data = json.loads(request.body)
-        id = data['id']
-        return id
+        return data['id']

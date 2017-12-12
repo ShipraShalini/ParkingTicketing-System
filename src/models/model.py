@@ -1,5 +1,7 @@
 from elasticsearch_dsl import DocType, String, Integer
+
 from src.common.constants import *
+
 
 class Slot(DocType):
     slot_no = Integer()
@@ -10,4 +12,3 @@ class Slot(DocType):
     class Meta:
         index=INDEX
         doc_type = DOC_TYPE
-

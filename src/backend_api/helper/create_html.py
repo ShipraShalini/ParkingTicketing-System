@@ -1,8 +1,8 @@
 import cStringIO
 import math
+import matplotlib.pyplot as plt
 import numpy as np
 
-import matplotlib.pyplot as plt
 
 class BarChartEXP():
     bar_width = 0.35
@@ -10,9 +10,9 @@ class BarChartEXP():
     sio = cStringIO.StringIO()
 
     def set_ylim(self,num):
-        ylim= int(math.ceil(num / 10.0)) * 10
+        ylim = int(math.ceil(num / 10.0)) * 10
         if ylim == num:
-            ylim = ylim+10
+            ylim = ylim + 10
         return ylim
 
     def usedata(self, data):
@@ -40,5 +40,6 @@ class BarChartEXP():
         plt.legend()
         plt.tight_layout()
         plt.savefig(self.sio, format=FORMAT)
-        return self.sio.getvalue().encode("base64").strip()
+        return self.sio.getvalue().encode('base64').strip()
+
 barchart = BarChartEXP()

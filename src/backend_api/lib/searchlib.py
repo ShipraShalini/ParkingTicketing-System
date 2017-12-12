@@ -7,24 +7,30 @@ class SearchClass(object):
 
     def regsearch(self, reg_no):
         try:
-            s= Slot.search()
+            s = Slot.search()
             slot = s.filter("term", registration_no = reg_no).execute()[0]
-            print slot, slot.registration_no, slot.slot_no
         except NotFoundError:
             return False
         else:
-            return dict(registration_no=slot.registration_no, slot_no=slot.slot_no, colour= slot.colour)
+            return {
+                'registration_no': slot.registration_no,
+                'slot_no': slot.slot_no,
+                'colour': slot.colour
+            }
 
     def coloursearch(self, colour):
         try:
-            s= Slot.search()
+            s = Slot.search()
             slot = s.filter("term", colour = colour).execute()
         except NotFoundError:
             return False
         else:
             slots = []
             for car in slot:
-                slots.append(dict(registration_no=car.registration_no, slot_no=car.slot_no))
+                slots.append({
+                    'registration_no': car.registration_no,
+                    'slot_no': car.slot_no,
+                })
             return slots
 
     def find(self, reg_no, colour):
@@ -38,4 +44,3 @@ class SearchClass(object):
 
 
 searchclass = SearchClass()
-
